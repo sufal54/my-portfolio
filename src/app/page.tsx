@@ -1,4 +1,3 @@
-"use client";
 import Baner from "@/components/Baner";
 import DashBoard from "@/components/DashBoard";
 import Footer from "@/components/Footer";

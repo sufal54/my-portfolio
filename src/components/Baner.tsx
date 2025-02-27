@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import image from "../../public/profile.png";
 import Image from "next/image";
 
 const Baner = () => {
@@ -65,7 +64,7 @@ const Baner = () => {
         <div className="w-4/5 pb-32 aspect-[1/1] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
           <Image
             className="object-cover rounded-full"
-            src={image}
+            src={"/profile.png"}
             alt={"image"}
           />
         </div>
