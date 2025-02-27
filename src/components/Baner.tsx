@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import image from "../../public/test.jpg";
+import image from "../../public/profile.png";
 import Image from "next/image";
 
 const Baner = () => {
@@ -60,10 +60,14 @@ const Baner = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="w-4/5 aspect-[1/1]  bg-lime-600"
+          className="w-4/5 sm:w-3/5 md:w-4/5 lg:w-4/5 xl:w-3/5 2xl:w-3/5 aspect-[1/1]  bg-lime-600"
         />
-        <div className="w-3/5 aspect-[1/1] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-          <Image className="object-cover" src={image} alt={"image"} />
+        <div className="w-4/5 pb-32 aspect-[1/1] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+          <Image
+            className="object-cover rounded-full"
+            src={image}
+            alt={"image"}
+          />
         </div>
       </motion.div>
     </div>
