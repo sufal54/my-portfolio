@@ -64,6 +64,7 @@ const Baner = () => {
         <div className="w-4/5 pb-32 aspect-[1/1] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
           <Image
             className="object-cover rounded-full"
+            fill
             src={"/profile.png"}
             alt={"image"}
           />
