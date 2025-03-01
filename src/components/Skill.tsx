@@ -15,7 +15,7 @@ const Skill = () => {
       transition: {
         type: "spring",
         stiffness: 150,
-        damping: 20,
+        damping: 30,
         delayChildren: 0.1,
         staggerChildren: 0.1,
       },
@@ -34,7 +34,7 @@ const Skill = () => {
         delay: 0.5,
         type: "spring",
         stiffness: 260,
-        damping: 20,
+        damping: 40,
       },
     },
   };
