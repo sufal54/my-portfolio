@@ -77,7 +77,10 @@ const Cert = () => {
         className="w-full h-96 flex flex-wrap flex-col justify-center gap-10 scroll-smooth overflow-x-scroll"
       >
         {certImg.map((item, i) => (
-          <motion.div key={i} className="w-96 h-80 relative">
+          <motion.div
+            key={i}
+            className="w-96 h-80 relative rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700"
+          >
             <Image
               className="rounded-xl"
               src={`/cert/${item}`}
