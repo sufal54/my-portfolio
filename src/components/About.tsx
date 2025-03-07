@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 const About = () => {
   return (
-    <div className="w-full h-full mt-14 bg-slate-900 overflow-x-hidden">
+    <div className="w-full h-full mt-14 bg-slate-900 overflow-hidden">
       <h1 className="p-2 text-2xl font-extrabold">About</h1>
       <motion.div
         initial={{

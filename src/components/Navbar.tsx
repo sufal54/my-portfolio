@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 // import { RxCross1 } from "react-icons/rx";
 const Navbar = () => {
   return (
-    <nav className="w-full h-full relative">
+    <nav className="w-full h-full relative overflow-hidden">
       <div className="w-36 h-full absolute flex items-center left-2">
         <motion.span
           initial={{

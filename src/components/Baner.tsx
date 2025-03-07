@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Baner = () => {
   return (
-    <div className="w-full mt-8 flex flex-col md:flex-row">
+    <div className="w-full mt-8 flex flex-col md:flex-row overflow-hidden">
       <motion.div
         initial={{
           x: -100,

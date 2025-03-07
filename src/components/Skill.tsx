@@ -40,7 +40,7 @@ const Skill = () => {
   };
 
   return (
-    <div className="w-full h-full mt-14 bg-slate-900 overflow-x-hidden">
+    <div className="w-full pb-6 h-full mt-14 bg-slate-900 overflow-x-hidden">
       <h1 className="p-2 text-2xl font-extrabold">Skills</h1>
       <motion.div
         initial={{
