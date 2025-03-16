@@ -5,30 +5,31 @@ import Image from "next/image";
 
 const Skill = () => {
   const [isAnimation, setIsAnimation] = useState<boolean>(false);
-
+  const [selectSkil, setSelectSkil] = useState<number>(-1);
   const skills: string[] = [
-    "react.png",
-    "redux.png",
-    "framer_motion.png",
-    "nextjs.png",
-    "tailwindcss.png",
-    "htl.png",
-    "css.png",
-    "javascript.png",
-    "graphql.png",
-    "material_ui.png",
-    "firebase.png",
-    "mongodb.png",
-    "nginx.png",
-    "mysql.png",
-    "ts.png",
-    "redis.png",
-    "nodejs.png",
-    "docker.png",
-    "github.png",
-    "java.png",
-    "python.png",
-    "rust.png",
+    "React",
+    "React_Redux",
+    "Framer_Motion",
+    "NextJS",
+    "TailwindCss",
+    "Html",
+    "Css",
+    "JavaScript",
+    "GraphQL",
+    "Material_UI",
+    "Firebase",
+    "MongoDB",
+    "Nginx",
+    "MySQL",
+    "ExpressJS",
+    "TypeScript",
+    "Redis",
+    "NodeJS",
+    "Docker",
+    "Github",
+    "Java",
+    "Python",
+    "Rust",
   ];
 
   return (
@@ -43,7 +44,7 @@ const Skill = () => {
           delayChildren: 0.3,
           staggerChildren: 0.2,
         }}
-        className={`w-full min-h-40 flex flex-wrap items-start justify-evenly gap-5 p-4 overflow-hidden`}
+        className={`w-full h-[500px] sm:h-80 md:h-60 lg:h-40 xl:h-40 flex flex-wrap items-start justify-evenly gap-5 p-4 overflow-hidden`}
       >
         {isAnimation &&
           skills.map((item, idx) => (
@@ -53,23 +54,38 @@ const Skill = () => {
               initial={{
                 y: -200,
                 scale: 0,
-                opacity: 0,
               }}
               animate={{
                 y: 0,
                 scale: 1,
-                opacity: 1,
                 rotate: 360,
               }}
               transition={{
                 delay: idx * 0.1,
                 type: "spring",
-                damping: 8,
-                stiffness: 80,
+                damping: 7,
+                stiffness: 100,
               }}
-              className="w-[57px] h-[57px] bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700 rounded-xl"
+              onHoverStart={() => setSelectSkil(idx)}
+              onHoverEnd={() => setSelectSkil(-1)}
+              onClick={() => setSelectSkil((prv) => (prv === idx ? -1 : idx))}
+              className="w-[57px] h-[57px] relative bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700 rounded-xl"
             >
-              <Image width={54} height={54} src={`/${item}`} alt={item} />
+              {idx == selectSkil && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  className="min-w-[57px] h-[40px] rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-2 flex flex-wrap items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700"
+                >
+                  <span className="text-xl">{item}</span>
+                </motion.div>
+              )}
+
+              <Image width={54} height={54} src={`/${item}.png`} alt={item} />
             </motion.div>
           ))}
       </motion.div>
