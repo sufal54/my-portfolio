@@ -25,6 +25,7 @@ const Skill = () => {
     "TypeScript",
     "Redis",
     "NodeJS",
+    "NestJS",
     "Docker",
     "Github",
     "Java",
