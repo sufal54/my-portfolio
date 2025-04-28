@@ -54,16 +54,15 @@ const Skill = () => {
               key={idx}
               viewport={{ once: false }}
               initial={{
-                x: idx % 2 == 0 ? "-100vw" : "+100vw",
+                opacity:0,
                 scale: 0,
               }}
               animate={{
-                x: 0,
+                opacity: 1,
                 scale: 1,
-                rotate: 360,
               }}
               transition={{
-                delay:idx  *0.1,
+                delay: idx/3  *0.1,
                 type: "spring",
                 damping: 7,
                 stiffness: 90,
