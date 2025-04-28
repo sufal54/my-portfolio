@@ -24,7 +24,7 @@ const About = () => {
         className="w-full flex flex-col"
       >
         <p className="p-2 font-semibold">
-          I am a self-taught{" "}
+          I am a{" "}
           <span className="text-xl font-bold">Full Stack Web Developer</span>{" "}
           with experience in building modern, scalable web applications. My
           expertise includes{" "}

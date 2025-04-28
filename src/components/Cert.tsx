@@ -1,7 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Card } from "./CertCaed";
 const Cert = () => {
   const certImg: string[] = [
     "1.jpg",
@@ -25,71 +26,34 @@ const Cert = () => {
     "19.jpg",
   ];
 
-  const scrollContainer = useRef<HTMLDivElement>(null);
-  let scrollDirection: "left" | "right" = "left";
-  const containerVariants = {
-    initial: {
-      x: 100,
-      rotate: 180,
-    },
-    whileInView: {
-      x: 0,
-      rotate: 360,
-      transition: {
-        type: "spring",
-        stiffness: 150,
-        damping: 30,
-        delayChildren: 0.1,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  useEffect(() => {
-    const scroll = setInterval(() => {
-      if (scrollContainer.current) {
-        if (scrollDirection === "left") {
-          scrollContainer.current.scrollLeft += 425;
-          if (
-            scrollContainer.current.scrollLeft +
-              scrollContainer.current.clientWidth >=
-            scrollContainer.current.scrollWidth
-          ) {
-            scrollDirection = "right";
-          }
-        } else {
-          scrollContainer.current.scrollLeft -= 425;
-          if (scrollContainer.current.scrollLeft <= 0) {
-            scrollDirection = "left";
-          }
-        }
-      }
-    }, 3000);
-
-    return () => clearInterval(scroll);
-  }, []);
+  const [index, setIndex] = useState(0);
   return (
     <div className="w-full h-full flex flex-col mt-14 bg-slate-900">
       <h1 className="p-2 text-2xl font-extrabold">Certificate</h1>
       <div
-        ref={scrollContainer}
+
         style={{ scrollbarWidth: "none" }}
-        className="w-full h-96 flex flex-wrap flex-col justify-center gap-10 scroll-smooth overflow-x-scroll"
+        className="w-full h-96 pb-16 flex flex-wrap flex-col items-center justify-center gap-10 scroll-smooth overflow-x-scroll"
       >
-        {certImg.map((item, i) => (
-          <motion.div
-            key={i}
-            className="w-96 h-80 relative rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700"
-          >
-            <Image
-              className="rounded-xl"
-              src={`/cert/${item}`}
-              fill
-              loading="lazy"
-              alt="certificate"
-            />
-          </motion.div>
-        ))}
+        <motion.div style={{  position: "relative" }}
+          className="w-96 h-80"
+        >
+            <AnimatePresence initial={false}>
+                <Card 
+                certImg={certImg} key={index + 1} height={360}
+                    width={388} frontCard={false} index={index+1}  setIndex={setIndex}  />
+                <Card
+                    key={index}
+                    frontCard={true}
+                    index={index}
+                    height={320}
+                    width={378}
+                    setIndex={setIndex}
+                    drag="x"
+                    certImg={certImg}
+                />
+            </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   );

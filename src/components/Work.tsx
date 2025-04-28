@@ -47,7 +47,7 @@ const Work = () => {
   return (
     <div className="w-full mt-7 flex flex-col">
       <h1 className="ml-4 font-extrabold text-2xl">Works</h1>
-      <div className="w-full p-4 flex flex-wrap justify-evenly gap-5">
+      <div className="w-full p-4 flex flex-wrap justify-evenly gap-5 overflow-hidden">
         <motion.div
           variants={parentVariants}
           initial={"initial"}

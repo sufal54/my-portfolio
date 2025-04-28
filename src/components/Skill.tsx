@@ -49,23 +49,24 @@ const Skill = () => {
       >
         {isAnimation &&
           skills.map((item, idx) => (
+            
             <motion.div
               key={idx}
               viewport={{ once: false }}
               initial={{
-                y: -200,
+                x: idx % 2 == 0 ? "-100vw" : "+100vw",
                 scale: 0,
               }}
               animate={{
-                y: 0,
+                x: 0,
                 scale: 1,
                 rotate: 360,
               }}
               transition={{
-                delay: idx * 0.1,
+                delay:idx  *0.1,
                 type: "spring",
                 damping: 7,
-                stiffness: 100,
+                stiffness: 90,
               }}
               onHoverStart={() => setSelectSkil(idx)}
               onHoverEnd={() => setSelectSkil(-1)}
