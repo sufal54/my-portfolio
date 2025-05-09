@@ -35,7 +35,7 @@ const Cert = () => {
         className="w-full min-h-96 flex flex-wrap flex-col items-center justify-center"
       >
         <motion.div style={{ position: "relative" }}
-          className="w-full h-full relative flex items-center justify-center"
+          className="w-full h-full p-10 absolute flex items-center justify-center"
         >
           <div className="w-[600] h-[500] md:w-[700] md:h-[590] p-10"></div>
           <AnimatePresence initial={false}>
