@@ -83,7 +83,7 @@ export function Card(props: {
           borderRadius,
           scale,
         }}
-        className={`w-[450] h-[400] md:w-[500] md:h-[460] relative ${props.frontCard ? "" : "top-25 md:top-30"}`}
+        className={`w-[450] h-[100] md:w-[500] md:h-[460] relative ${props.frontCard ? "" : "top-25 md:top-30"}`}
 
 
         draggable={false}
