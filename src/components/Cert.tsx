@@ -1,7 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Card } from "./CertCaed";
 const Cert = () => {
   const certImg: string[] = [
@@ -33,26 +32,27 @@ const Cert = () => {
       <div
 
         style={{ scrollbarWidth: "none" }}
-        className="w-full h-96 pb-16 flex flex-wrap flex-col items-center justify-center gap-10 scroll-smooth overflow-x-scroll"
+        className="w-full min-h-96 flex flex-wrap flex-col items-center justify-center"
       >
-        <motion.div style={{  position: "relative" }}
-          className="w-96 h-80"
+        <motion.div style={{ position: "relative" }}
+          className="w-full h-full flex items-center justify-center"
         >
-            <AnimatePresence initial={false}>
-                <Card 
-                certImg={certImg} key={index + 1} height={360}
-                    width={388} frontCard={false} index={index+1}  setIndex={setIndex}  />
-                <Card
-                    key={index}
-                    frontCard={true}
-                    index={index}
-                    height={320}
-                    width={378}
-                    setIndex={setIndex}
-                    drag="x"
-                    certImg={certImg}
-                />
-            </AnimatePresence>
+          <div className="w-[600] h-[500] md:w-[700] md:h-[590]"></div>
+          <AnimatePresence initial={false}>
+            <Card
+              certImg={certImg} key={index + 1} height={360}
+              width={388} frontCard={false} index={index + 1} setIndex={setIndex} />
+            <Card
+              key={index}
+              frontCard={true}
+              index={index}
+              height={320}
+              width={378}
+              setIndex={setIndex}
+              drag="x"
+              certImg={certImg}
+            />
+          </AnimatePresence>
         </motion.div>
       </div>
     </div>

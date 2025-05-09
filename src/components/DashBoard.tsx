@@ -3,6 +3,7 @@ import About from "./About";
 import Work from "./Work";
 import Skill from "./Skill";
 import Cert from "./Cert";
+import Expr from "./Expr";
 
 const DashBoard = () => {
   return (
@@ -10,6 +11,7 @@ const DashBoard = () => {
       <About />
       <Cert />
       <Skill />
+      <Expr/>
       <Work />
     </div>
   );

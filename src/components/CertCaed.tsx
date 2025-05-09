@@ -59,14 +59,16 @@ export function Card(props: {
   return (
     <motion.div
       style={{
-        width: cardWidth,
-        height: cardHeight,
+        // width: cardWidth,
+        // height: cardHeight,
         position: "absolute",
-        top: 0,
+        // top: 0,
         x,
         rotate,
         cursor: "grab",
       }}
+      className="flex"
+
       whileTap={{ cursor: "grabbing" }}
       drag="x"
       dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
@@ -84,12 +86,15 @@ export function Card(props: {
     >
       <motion.img
         style={{
-          width: cardWidth,
-          height: cardHeight,
+          // width: cardWidth,
+          // height: cardHeight,
           backgroundColor: "#fff",
           borderRadius,
           scale,
         }}
+      className={`w-[500] h-[400] md:w-[600] md:h-[490] ${props.frontCard ? "" : "relative top-16 md:top-20"}`}
+
+        
         draggable={false}
         src={props.certImg.length > props.index ? `/cert/${props.certImg[props.index]}`:`/cert/${props.certImg[0]}`}
       
