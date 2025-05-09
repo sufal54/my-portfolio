@@ -6,11 +6,9 @@ export function Card(props: {
   index: number;
   setIndex: (i: number) => void;
   frontCard: boolean;
-  width?: number;
-  height?: number;
   borderRadius?: number;
-  drag?:string;
-  certImg:string[];
+  drag?: string;
+  certImg: string[];
 }) {
   const SWIPE_THRESHOLD = 100;
   const [exitX, setExitX] = useState(0);
@@ -43,26 +41,21 @@ export function Card(props: {
       props.setIndex(props.index + 1);
     } else if (info.offset.x > SWIPE_THRESHOLD) {
       setExitX(250);
-      if(props.index + 1 < props.certImg.length){
+      if (props.index + 1 < props.certImg.length) {
 
-          props.setIndex( props.index + 1);
-      }else {
+        props.setIndex(props.index + 1);
+      } else {
         props.setIndex(0);
       }
     }
   }
 
-  const cardWidth = props.width ?? 150;
-  const cardHeight = props.height ?? 150;
   const borderRadius = props.borderRadius ?? 30;
 
   return (
     <motion.div
       style={{
-        // width: cardWidth,
-        // height: cardHeight,
         position: "absolute",
-        // top: 0,
         x,
         rotate,
         cursor: "grab",
@@ -86,20 +79,18 @@ export function Card(props: {
     >
       <motion.img
         style={{
-          // width: cardWidth,
-          // height: cardHeight,
           backgroundColor: "#fff",
           borderRadius,
           scale,
         }}
-      className={`w-[500] h-[400] md:w-[600] md:h-[490] ${props.frontCard ? "" : "relative top-16 md:top-20"}`}
+        className={`w-[500] h-[400] md:w-[600] md:h-[490] ${props.frontCard ? "" : "relative top-16 md:top-20"}`}
 
-        
+
         draggable={false}
-        src={props.certImg.length > props.index ? `/cert/${props.certImg[props.index]}`:`/cert/${props.certImg[0]}`}
-      
+        src={props.certImg.length > props.index ? `/cert/${props.certImg[props.index]}` : `/cert/${props.certImg[0]}`}
+
       />
-        
+
     </motion.div>
   );
 }

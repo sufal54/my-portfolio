@@ -40,14 +40,12 @@ const Cert = () => {
           <div className="w-[600] h-[500] md:w-[700] md:h-[590]"></div>
           <AnimatePresence initial={false}>
             <Card
-              certImg={certImg} key={index + 1} height={360}
-              width={388} frontCard={false} index={index + 1} setIndex={setIndex} />
+              certImg={certImg} key={index + 1}
+              frontCard={false} index={index + 1} setIndex={setIndex} />
             <Card
               key={index}
               frontCard={true}
               index={index}
-              height={320}
-              width={378}
               setIndex={setIndex}
               drag="x"
               certImg={certImg}
