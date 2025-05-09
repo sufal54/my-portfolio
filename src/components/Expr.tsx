@@ -53,7 +53,7 @@ const Expr = () => {
         {
           expr_cert.map((item, i)=> (
             <div key={i}
-              className="flex flex-col w-screen lg:flex-row items-center justify-center"
+              className="flex flex-col w-screen md:flex-row items-center justify-center"
             >
               <p className="flex flex-wrap p-9 lg:w-1/2 font-bold">{item.prompt}</p>
               <div className="w-screen h-96 mt-5 md:h-[450] lg:h-[600] xl:h-[800] rounded-xl overflow-hidden relative">
