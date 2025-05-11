@@ -56,6 +56,8 @@ export function Card(props: {
     <motion.div
       style={{
         position: "absolute",
+        width: 700,
+        height: 500,
         x,
         rotate,
         cursor: "grab",
@@ -79,11 +81,14 @@ export function Card(props: {
     >
       <motion.img
         style={{
+
+          width: 700,
+          height: 500,
           backgroundColor: "#fff",
           borderRadius,
           scale,
         }}
-        className={`w-[500] h-[400] md:w-[600] md:h-[490] ${props.frontCard ? "" : "top-16 md:top-20"}`}
+        className={`w-[500] h-[400] md:w-[600] md:h-[490] ${props.frontCard ? "" : " relative top-16 md:top-20"}`}
 
 
         draggable={false}

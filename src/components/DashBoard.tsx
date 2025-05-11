@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import About from "./About";
 import Work from "./Work";
@@ -11,7 +12,7 @@ const DashBoard = () => {
       <About />
       <Cert />
       <Skill />
-      <Expr/>
+      <Expr />
       <Work />
     </div>
   );
