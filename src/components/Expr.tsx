@@ -47,7 +47,7 @@ export default function Expr() {
         <h1 className="text-4xl font-extrabold text-white tracking-tight">
           Experience
         </h1>
-        <span className="text-2xl text-lime-400 font-bold">1.4 Years</span>
+        {/* <span className="text-2xl text-lime-400 font-bold">1.4 Years</span> */}
       </div>
 
       {/* Slider */}
