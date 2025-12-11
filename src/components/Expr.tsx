@@ -28,17 +28,21 @@ export default function Expr() {
       if (!el) return;
 
       const width = el.clientWidth;
+      const totalItems = expr_cert.length;
+
+      const currentIndex = Math.round(el.scrollLeft / width);
+
+      const nextIndex = (currentIndex + 1) % totalItems;
 
       el.scrollTo({
-        left:
-          width *
-          ((Math.floor(el.scrollLeft / width) + 1) % expr_cert.length),
+        left: width * nextIndex,
         behavior: "smooth",
       });
     }, 3500);
 
     return () => clearInterval(interval);
   }, []);
+
 
   return (
     <div className="w-full bg-slate-900 py-16 mt-20 overflow-hidden">
