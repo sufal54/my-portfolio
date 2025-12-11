@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa6";
@@ -7,35 +8,54 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div id="contact" className="w-full h-full flex items-center justify-center">
+    <div id="contact" className="w-full bg-slate-900 py-16 flex items-center justify-center">
       <motion.div
-        initial={{
-          y: 100,
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.5,
-        }}
-        className="flex flex-col items-center justify-center gap-4"
+        initial={{ y: 80, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="flex flex-col items-center justify-center gap-4 text-center"
       >
-        <span className="font-semibold text-xl">Contact Deatils</span>
-        <span className="text-lg">Email: sufalbala29@gmail.com</span>
-        <div className="flex gap-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+          Get in Touch
+        </h2>
+        <p className="text-lg md:text-xl text-slate-300">
+          Email: <span className="text-lime-400">sufalbala29@gmail.com</span>
+        </p>
+
+        {/* Social Icons */}
+        <div className="flex gap-6 mt-4 text-2xl text-white">
           <Link
-            href={
-              "https://www.linkedin.com/in/sufal-bala-b404242a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            }
+            href="https://www.linkedin.com/in/sufal-bala-b404242a9"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <FaLinkedin className="cursor-pointer" />
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+              className="cursor-pointer text-lime-400"
+            >
+              <FaLinkedin />
+            </motion.div>
           </Link>
-          <Link href={"https://github.com/sufal54"}>
-            <IoLogoGithub className="cursor-pointer" />
+
+          <Link
+            href="https://github.com/sufal54"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+              className="cursor-pointer text-lime-400"
+            >
+              <IoLogoGithub />
+            </motion.div>
           </Link>
         </div>
+
+        <p className="mt-6 text-slate-500 text-sm">
+          © {new Date().getFullYear()} Sufal Bala. All rights reserved.
+        </p>
       </motion.div>
     </div>
   );
