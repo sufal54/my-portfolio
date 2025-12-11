@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div id="contact" className="w-full h-full flex items-center justify-center">
       <motion.div
         initial={{
           y: 100,

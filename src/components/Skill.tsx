@@ -1,11 +1,12 @@
 "use client";
+
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const Skill = () => {
-  const [isAnimation, setIsAnimation] = useState<boolean>(false);
-  const [selectSkil, setSelectSkil] = useState<number>(-1);
+export default function Skill() {
+  const [active, setActive] = useState<number | null>(null);
+
   const skills: string[] = [
     "React",
     "React_Redux",
@@ -34,64 +35,76 @@ const Skill = () => {
   ];
 
   return (
-    <div className="w-full pb-6 h-full mt-14 bg-slate-900 overflow-x-hidden">
-      <h1 className="p-2 text-2xl font-extrabold">Skills</h1>
+    <div className="w-full pb-16 mt-20 bg-slate-900 overflow-hidden">
+      <h1 className="p-4 text-4xl font-extrabold tracking-wide">
+        <span className="bg-gradient-to-r from-lime-300 to-emerald-500 text-transparent bg-clip-text">
+          Skills
+        </span>
+      </h1>
+
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        onViewportEnter={() => setIsAnimation(true)}
-        onViewportLeave={() => setIsAnimation(false)}
-        transition={{
-          delayChildren: 0.3,
-          staggerChildren: 0.2,
-        }}
-        className={`w-full h-[500px] sm:h-80 md:h-60 lg:h-40 xl:h-40 flex flex-wrap items-start justify-evenly gap-5 p-4 overflow-hidden`}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: false }}
+        className="w-full flex flex-wrap gap-8 justify-center px-6 mt-4"
       >
-        {isAnimation &&
-          skills.map((item, idx) => (
-            
-            <motion.div
-              key={idx}
-              viewport={{ once: false }}
-              initial={{
-                opacity:0,
-                scale: 0,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                delay: idx/3  *0.1,
-                type: "spring",
-                damping: 7,
-                stiffness: 90,
-              }}
-              onHoverStart={() => setSelectSkil(idx)}
-              onHoverEnd={() => setSelectSkil(-1)}
-              onClick={() => setSelectSkil((prv) => (prv === idx ? -1 : idx))}
-              className="w-[57px] h-[57px] relative bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700 rounded-xl"
-            >
-              {idx == selectSkil && (
+        {skills.map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.7, y: 25 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              delay: idx * 0.04,
+              type: "spring",
+              stiffness: 120,
+              damping: 12,
+            }}
+            onHoverStart={() => setActive(idx)}
+            onHoverEnd={() => setActive(null)}
+            onClick={() => setActive((prev) => (prev === idx ? null : idx))}
+            className={`
+              relative w-[70px] h-[70px] rounded-2xl
+              bg-slate-800/60 backdrop-blur-xl
+              flex items-center justify-center 
+              border border-slate-700/60
+              transition-all duration-300 cursor-pointer 
+              shadow-lg shadow-black/40
+              hover:shadow-lime-400/30 hover:scale-110
+              ${active === idx ? "scale-110 ring-4 ring-lime-400/70" : "ring-2 ring-slate-700/60"}
+            `}
+          >
+            <AnimatePresence>
+              {active === idx && (
                 <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: 1,
-                  }}
-                  className="min-w-[57px] h-[40px] rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-2 flex flex-wrap items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 ring-4 ring-slate-700 shadow-lg shadow-slate-700"
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, y: -58, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                  transition={{ duration: 0.25 }}
+                  className="
+                    absolute px-3 py-1 rounded-lg 
+                    bg-slate-900/90 border border-slate-700 
+                    text-sm text-slate-200 
+                    shadow-xl backdrop-blur-xl 
+                    whitespace-nowrap
+                  "
                 >
-                  <span className="text-xl">{item}</span>
+                  {item.replace("_", " ")}
                 </motion.div>
               )}
+            </AnimatePresence>
 
-              <Image width={54} height={54} src={`/${item}.png`} alt={item} />
-            </motion.div>
-          ))}
+            <Image
+              width={50}
+              height={50}
+              src={`/${item}.png`}
+              alt={item}
+              className="object-contain drop-shadow-md"
+            />
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
-};
-
-export default Skill;
+}

@@ -37,7 +37,7 @@ const Cert = () => {
         <motion.div style={{ height: 550, position: "relative" }}
           className="w-full h-full flex items-center justify-center"
         >
-          <div className="w-[600] h-[500] md:w-[700] md:h-[590]"></div>
+          {/* <div className="w-[600] h-[500] md:w-[700] md:h-[590]"></div> */}
           <AnimatePresence initial={false}>
             <Card
               certImg={certImg} key={index + 1}

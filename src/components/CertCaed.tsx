@@ -56,8 +56,8 @@ export function Card(props: {
     <motion.div
       style={{
         position: "absolute",
-        width: 700,
-        height: 500,
+        // width: 700,
+        // height: 500,
         x,
         rotate,
         cursor: "grab",
